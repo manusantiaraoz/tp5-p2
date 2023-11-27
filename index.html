@@ -90,7 +90,7 @@
               <input
                 class="form-control"
                 list="datalistOptions"
-                id="exampleDataList"
+                id="inputSexo"
                 placeholder="selecciona una opcion"
               />
               <datalist id="datalistOptions">
@@ -149,11 +149,24 @@
                 max="2023"
               />
             </div>
-          <div class="d-grid gap-2 col-12 mx-auto">
+          <div class="d-grid gap-2 col-10 mx-auto mb-5">
             <button type="submit" class="btn btn-outline-light">crear</button>
           </div>
         </form>
-      </section>
+        <div class="container">
+          <div class="row">
+            <div class="d-grid gap-2 col-4 mx-auto">
+              <button type="button" class="btn btn-info" id="mostrarDatos">mostrar datos</button>
+            </div>
+            <div class="d-grid gap-2 col-4 mx-auto">
+              <button type="button" class="btn btn-info" id="mayorEdad">es mayor de edad</button>
+            </div>
+            <div class="d-grid gap-2 col-4 mx-auto">
+              <button type="button" class="btn btn-info" id="generacion">mostrar generacion</button>
+            </div>
+          </div>
+        </div>
+        </section>
     </main>
     <footer class="bg-secondary text-bg-light text-center p-3">
       <p>&copy; todos los derechos reservados</p>

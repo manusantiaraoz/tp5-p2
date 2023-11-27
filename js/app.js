@@ -17,6 +17,32 @@ class Persona{
   this.#altura=altura;
   this.#anioNacimiento=anio;
   }
+
+  set setNombre(n){
+    this.#nombre=n;
+  }
+  set setEdad(n){
+    this.#edad=n;
+  }
+  set setDni(n){
+    this.#DNI=n;
+  }
+  set setSexo(n){
+    this.#sexo=n;
+  }
+  set setPeso(n){
+    this.#peso=n;
+  }
+  set setAltura(n){
+    this.#altura=n;
+  }
+  set setAnio(n){
+    this.#anioNacimiento=n;
+  }
+
+
+
+
   mostrarGeneracion(){
       let decada =this.#anioNacimiento%100;
       if(decada > 29 && decada <= 48){
@@ -47,32 +73,56 @@ class Persona{
       let anio = new Date(); 
       let edad =  anio.getFullYear() - this.#anioNacimiento ;
   if(edad>=18){
-      document.write(`<p>${this.#nombre} es mayor de edad</p>`);
+      return (`${this.#nombre} es mayor de edad`);
   }else{
-      document.write(`<p>${this.#nombre} es menor de edad</p>`);
+      return(`${this.#nombre} es menor de edad`);
   }
   }
    
   mostrarDatos(){
-      document.write(`<p>nombre: ${this.#nombre}; edad: ${this.#edad}; dni: ${this.#DNI}; sexo: ${this.#sexo}; peso: ${this.#peso}; altura: ${this.#altura}; año: ${this.#anioNacimiento} </p>`);
+    return (`nombre: ${this.#nombre}; edad: ${this.#edad}; dni: ${this.#DNI}; sexo: ${this.#sexo}; peso: ${this.#peso}; altura: ${this.#altura}; año: ${this.#anioNacimiento}`);
   }
   generaDNI(){
       return this.#DNI = Math.floor(Math.random() * 90000000 );
   }
   
   }
+  const formulario = document.querySelector("form");
+  const botonenviar = document.querySelector(".btn-outline-light");
+  const nombre = document.getElementById("inputNombre");
+  const edad = document.getElementById("inputEdad");
+  const DNI = document.getElementById("inputDni");
+  const sexo = document.getElementById("inputSexo");
+  const peso = document.getElementById("inputPeso");
+  const altura = document.getElementById("inputAltura");
+  const anioNacimiento = document.getElementById("inputNacimiento");
+  const btnDatos = document.getElementById("mostrarDatos");
+  const btnMayor = document.getElementById("mayorEdad");
+  const btnGeneracion = document.getElementById("generacion");
+
+  let p1 = new Persona();
   
-  let p1 = new Persona("santi", 28, 0, "M", 120, 1.95, 1995);
+  const crearPersona = (e)=>{
+    e.preventDefault();
+    p1.setNombre =nombre.value
+    p1.setEdad =parseInt(edad.value)
+    p1.setDni =DNI.value
+    p1.setSexo =sexo.value
+    p1.setPeso =parseInt(peso.value)
+    p1.setAltura =parseInt(altura.value)
+    p1.setAnio =parseInt(anioNacimiento.value)
+    
+    formulario.reset();
+    console.log(p1.mostrarDatos());
+  }
   
- 
+  formulario.addEventListener("submit", crearPersona);
+  
+  
 
 
 /*
 const textNumero = document.getElementById("textNumero");
-const formulario = document.querySelector("form");
-const botonComprobar = document.querySelector(".btn-outline-light");
-const btnNuevoJuego = document.getElementById("btnNuevoJuego");
-const infoInput = document.getElementById("inputNumero");
 
 let randomVariable;
 
@@ -99,6 +149,5 @@ const iNumero=document.querySelector("#inputNumero");
 iNumero.value;
 formulario.reset();
 btnNuevoJuego.addEventListener("click", nuevoJuego);
-formulario.addEventListener("submit", comprobar);
 
 */
