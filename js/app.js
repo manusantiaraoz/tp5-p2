@@ -47,26 +47,26 @@ class Persona{
       let decada =this.#anioNacimiento%100;
       if(decada > 29 && decada <= 48){
   
-          document.write(`<p>${decada} tu generación es "Silent Generation" su rasgo caracteristico es: la austeridad</p>`);
+          return(`${decada} tu generación es "Silent Generation" su rasgo caracteristico es: la austeridad`);
   
       }else if(decada>48 && decada <= 68){
-          document.write(`<p>${decada} tu generación es "Baby Boom" su rasgo caracteristico es: la ambición</p>`);
+        return(`${decada} tu generación es "Baby Boom" su rasgo caracteristico es: la ambición`);
   
       }else if(decada>68 && decada <= 80){
           
-          document.write(`<p>${decada} tu generación es "Generación X" su rasgo caracteristico es: la obsesión por el éxito</p>`);
+        return(`${decada} tu generación es "Generación X" su rasgo caracteristico es: la obsesión por el éxito`);
   
   
       }else if(decada>80 && decada <= 93){
   
-          document.write(`<p>${decada} tu generación es "Generación Y, millennials" su rasgo caracteristico es: la Frustración</p>`);
+          return(`${decada} tu generación es "Generación Y, millennials" su rasgo caracteristico es: la Frustración`);
           
       }else if(decada>93){
   
-          document.write(`<p>${decada} tu generación es "Generación Z" su rasgo caracteristico es: la Irreverencia</p>`);
+          return(`${decada} tu generación es "Generación Z" su rasgo caracteristico es: la Irreverencia`);
           
       }else{
-          document.write(`<p>aún no peseemos informacion de tu generación</p>`);
+          return(`aún no peseemos informacion de tu generación`);
       }
   }
   esMayorDeEdad(){
@@ -80,7 +80,7 @@ class Persona{
   }
    
   mostrarDatos(){
-    return (`nombre: ${this.#nombre}; edad: ${this.#edad}; dni: ${this.#DNI}; sexo: ${this.#sexo}; peso: ${this.#peso}; altura: ${this.#altura}; año: ${this.#anioNacimiento}`);
+    return (`nombre: ${this.#nombre}; \n edad: ${this.#edad}; \n dni: ${this.#DNI}; \n sexo: ${this.#sexo}; \n peso: ${this.#peso}; \n altura: ${this.#altura}; \n año: ${this.#anioNacimiento}`);
   }
   generaDNI(){
       return this.#DNI = Math.floor(Math.random() * 90000000 );
@@ -99,6 +99,7 @@ class Persona{
   const btnDatos = document.getElementById("mostrarDatos");
   const btnMayor = document.getElementById("mayorEdad");
   const btnGeneracion = document.getElementById("generacion");
+  const tDato = document.getElementById("tDato");
 
   let p1 = new Persona();
   
@@ -116,9 +117,21 @@ class Persona{
     console.log(p1.mostrarDatos());
   }
   
+  const mostrar=()=>{
+    tDato.innerHTML=`datos: ${p1.mostrarDatos()}`;
+  }
+  const mayorE=()=>{
+    alert(`${p1.esMayorDeEdad()}`)
+  }
+  const generacion=()=>{
+    alert(`${p1.mostrarGeneracion()}`)
+  }
+  
   formulario.addEventListener("submit", crearPersona);
-  
-  
+  btnDatos.addEventListener("click",mostrar);
+  btnMayor.addEventListener("click",mayorE);
+  btnGeneracion.addEventListener("click",generacion);
+ 
 
 
 /*
